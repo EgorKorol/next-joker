@@ -37,13 +37,15 @@ export function JokersForm({onClose}: Props): ReactElement {
                 {fields.map((field, index) => (
                     <li key={field.id}>
                         <input type="text" {...register(`jokers.${index}.name`, { required: true })} />
-                        <button type="button" onClick={() => remove(index)}>Удалить</button>
+                        <button type="button" onClick={() => remove(index)}>Удалить 🗑️</button>
                     </li>
                 ))}
             </ul>
             <div className="form-actions">
-                <button type="button" onClick={() => append({ name: '', wasJoking: false })}>Добавить шутника</button>
-                <button type="submit" disabled={!formState.isValid}>Сохранить</button>
+                <button type="button" onClick={() => append({ name: '', wasJoking: false })}>Добавить шутника
+                    ➕</button>
+                <button type="submit" disabled={!formState.isValid}>Сохранить
+                    💾</button>
             </div>
         </form>
     )

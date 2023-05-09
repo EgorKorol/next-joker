@@ -5,18 +5,9 @@ import {EnterDataForm} from "./components/EnterDataForm";
 import {JokersTable} from "./components/JokersTable";
 import {Header} from "./components/Header";
 import {Joker} from "./types";
-import {ALL_JOKERS_KEY} from "./consts";
+import {ALL_JOKERS_KEY, START_JOKERS} from "./consts";
 import {NextJoker} from "./components/NextJoker";
-import { ErrorBoundary } from "react-error-boundary";
-
-const startJokers: Joker[] = [
-  {name: 'Наташа Л', wasJoking: false},
-  {name: 'Наташа Г', wasJoking: false},
-  {name: 'Егор К', wasJoking: false},
-  {name: 'Егор Д', wasJoking: false},
-  {name: 'Петр К', wasJoking: false},
-  {name: 'Никита С', wasJoking: false},
-];
+import {ErrorBoundary} from "react-error-boundary";
 
 export function App() {
   const { value: isEditingJokers, setTrue: showJokersForm, setFalse: hideJokersForm } = useBoolean();
@@ -26,7 +17,7 @@ export function App() {
 
   useEffectOnce(() => {
     if (savedJokers.length === 0) {
-      saveJokers(startJokers);
+      saveJokers(START_JOKERS);
     }
   })
 

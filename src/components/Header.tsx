@@ -18,20 +18,20 @@ export function Header({onStartAgain, onEditJokers, onCopy, onEnter, onNextJoker
         <nav>
             <ul className="actions">
                 <li>
-                    <button type="button" disabled={!savedJokers.length} onClick={onNextJoker}>Выбрать шутника</button>
+                    <button type="button" disabled={!savedJokers.length} onClick={onNextJoker}>Выбрать шутника 🎯</button>
                 </li>
                 <li>
-                    <button type="button" onClick={onStartAgain}>Начать сначала</button>
+                    <button type="button" onClick={onStartAgain}>Начать сначала 🔃</button>
                 </li>
                 <li>
-                    <button type="button" onClick={onEditJokers}>Редактировать список участников
+                    <button type="button" onClick={onEditJokers}>Редактировать список участников 🖊️
                     </button>
                 </li>
                 <li>
-                    <button type="button" onClick={onCopy}>Скопировать текущее состояние</button>
+                    <button type="button" onClick={onCopy}>Скопировать текущее состояние ⬆️</button>
                 </li>
                 <li>
-                    <button type="button" onClick={onEnter}>Вставить сохраненное состояние</button>
+                    <button type="button" onClick={onEnter}>Вставить сохраненное состояние ⬇️</button>
                 </li>
             </ul>
         </nav>

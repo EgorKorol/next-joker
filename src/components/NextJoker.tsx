@@ -24,8 +24,8 @@ export function NextJoker({onClose}: Props) {
             return {name: 'Больше шутников нет, давайте заново', wasJoking: false};
         }
 
-        return leftJokers[Math.floor((savedJokers.length - skippedJokers.length) * Math.random())]
-    }, [savedJokers, skippedJokers, leftJokers]);
+        return leftJokers[Math.floor(leftJokers.length * Math.random())]
+    }, [leftJokers]);
 
     const moveToJokedList = () => {
         setSkippedJokers((old) => [...old, nextJoker]);
@@ -41,11 +41,14 @@ export function NextJoker({onClose}: Props) {
 
     return (
         <div className="abs">
-            {!isNextJoker && <div className="animation">Анимация TODO</div>}
-            {isNextJoker && <div className="abs-joker">{nextJoker.name}</div>}
-            {isNextJoker && <div className="abs-actions">
-                <button type="button" onClick={apply}>Класс</button>
-                <button type="button" onClick={moveToJokedList}>Пропустить</button>
+            {!isNextJoker && <div className="animation">Анимация</div>}
+            {isNextJoker && <div className="box">
+                <div className="abs-joker">{nextJoker.name}</div>
+                <div className="abs-actions">
+                    <button type="button" onClick={onClose}>Закрыть</button>
+                    <button type="button" onClick={apply}>Класс 👍</button>
+                    <button type="button" onClick={moveToJokedList}>Пропустить ⏭️</button>
+                </div>
             </div>}
         </div>
     )

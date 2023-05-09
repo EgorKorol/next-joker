@@ -17,8 +17,8 @@ export function JokersTable() {
     return <table className="table">
         <thead>
         <tr>
-            <th>Не шутили</th>
-            <th>Пошутили</th>
+            <th>Не шутили ❌</th>
+            <th>Пошутили ✅</th>
         </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@ export function JokersTable() {
                 <ul>
                     {
                         savedJokers.filter(({ wasJoking }) => !wasJoking).map(({name}) => (
-                            <li key={name}>{name} <button type="button" onClick={moveToJokedList(name)}>➡️</button></li>
+                            <li key={name}>{name} <button title="Переместить в пошутивших" type="button" onClick={moveToJokedList(name)}>➡️</button></li>
                         ))
                     }
                 </ul>
@@ -37,7 +37,7 @@ export function JokersTable() {
                 <ul>
                     {
                         savedJokers.filter(({ wasJoking }) => wasJoking).map(({name}) => (
-                            <li key={name}><button type="button" onClick={moveToNotJokedList(name)}>⬅️</button>️ {name}</li>
+                            <li key={name}><button title="Переместить в не шутивших" type="button" onClick={moveToNotJokedList(name)}>⬅️</button>️ {name}</li>
                         ))
                     }
                 </ul>

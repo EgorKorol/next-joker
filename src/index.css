@@ -40,7 +40,7 @@ button {
 
 .table {
     width: 100%;
-    max-width: 600px;
+    max-width: 634px;
     margin: 0 auto;
 }
 
@@ -93,6 +93,10 @@ h1 {
     align-items: center;
 }
 
+.inputs button {
+    flex-shrink: 0;
+}
+
 input, textarea {
     width: 100%;
     padding: 4px 8px;
@@ -101,7 +105,7 @@ input, textarea {
 }
 
 textarea {
-    min-height: 300px;
+    min-height: 200px;
     margin-bottom: 16px;
 }
 
@@ -129,24 +133,23 @@ form {
     width: 100vw;
     height: 100vh;
     display: grid;
-    align-items: center;
     justify-content: center;
-    justify-items: center;
     align-content: center;
-    gap: 32px;
     background-color: rgba(0,0,0,0.4);
 }
 
 .abs-joker {
-    color: yellow;
+    text-align: center;
     font-size: 36px;
     font-weight: 500;
 }
 
 .animation {
-    font-size: 28px;
-    color: aqua;
+    font-size: 36px;
+    color: greenyellow;
     animation-name: rotate;
+    text-shadow: 5px 5px #558ABB;
+    font-weight: 900;
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
 }
@@ -155,17 +158,37 @@ form {
     display: flex;
     gap: 32px;
     align-items: center;
-    max-width: 200px;
+    max-width: 400px;
 }
 
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-        opacity: 1;
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
     }
 
-    to {
-        transform: rotate(360deg);
-        display: none;
+    50% {
+        transform: rotate(180deg) translate3d(20%, -20%, -150px) scale(2, 0.5) skew(20deg, 40deg);
     }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.box {
+    padding: 16px;
+    background-color: #fff;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 32px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 1px dotted red;
+    min-width: 300px;
 }
