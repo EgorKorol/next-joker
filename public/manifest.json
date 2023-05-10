@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Шутник дня",
+  "name": "Выбираем рассказчика в приложении",
   "icons": [
     {
       "src": "favicon.ico",
