@@ -140,38 +140,42 @@ form {
 
 .abs-joker {
     text-align: center;
-    font-size: 36px;
-    font-weight: 500;
+    font-size: 70px;
+    font-weight: 700;
 }
 
-.animation {
-    font-size: 36px;
-    color: greenyellow;
+.name-animation, .surname-animation {
+    opacity: 0;
+    display: inline-block;
     animation-name: rotate;
-    text-shadow: 5px 5px #558ABB;
-    font-weight: 900;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.surname-animation {
+    animation-delay: 0.7s;
 }
 
 .abs-actions {
     display: flex;
     gap: 32px;
     align-items: center;
-    max-width: 400px;
+}
+
+.abs-actions--center {
+    display: flex;
+    justify-content: center;
 }
 
 @keyframes rotate {
     0% {
-        transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-
-    50% {
-        transform: rotate(180deg) translate3d(20%, -20%, -150px) scale(2, 0.5) skew(20deg, 40deg);
+        transform: scale(4);
     }
 
     100% {
-        transform: rotate(360deg);
+        opacity: 1;
+        transform: scale(1);
     }
 }
 

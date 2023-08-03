@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {JokersForm} from "./components/JokersForm";
 import {useBoolean, useEffectOnce, useLocalStorage} from "usehooks-ts";
 import {EnterDataForm} from "./components/EnterDataForm";
@@ -21,6 +21,8 @@ export function App() {
     }
   })
 
+  const jokers = useMemo(() => savedJokers.length ? savedJokers : START_JOKERS, [savedJokers])
+
   const openEditing = () => {
     hideEnterDataForm();
     showJokersForm();
@@ -36,7 +38,7 @@ export function App() {
     const yes = confirm('Все кто пошутил - снова будут доступны для выбора');
 
     if (yes) {
-      saveJokers(savedJokers.map((j) => ({...j, wasJoking: false})))
+      saveJokers(jokers.map((j) => ({...j, wasJoking: false})))
     }
   };
 
@@ -50,9 +52,7 @@ export function App() {
   };
 
   const startFromZero = () => {
-    localStorage.removeItem(ALL_JOKERS_KEY);
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
+    saveJokers(jokers.map((j: Joker) => ({...j, wasJoking: false})));
   }
 
   return (
@@ -62,7 +62,7 @@ export function App() {
           <div className="wrapper">
             {isEditingJokers && <JokersForm onClose={hideJokersForm}/>}
             {isEnteringData && <EnterDataForm onClose={hideEnterDataForm}/>}
-            {isNextJoker && <NextJoker onClose={hideNextJoker} />}
+            {isNextJoker && <NextJoker onClose={hideNextJoker} onStartAgain={startAgain} />}
             <JokersTable/>
           </div>
         </ErrorBoundary>
